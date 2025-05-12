@@ -5,6 +5,7 @@ edition = "2024"
 
 [workspace]
 members = [ "src/greet",
+    "src/console_input",
     "src/hello_world",
     "src/greet",
 ]
