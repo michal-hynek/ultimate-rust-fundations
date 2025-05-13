@@ -1,4 +1,4 @@
-use authentication::{login, read_line};
+use authentication::{login, read_line, LoginAction};
 
 fn main() {
     let mut tries = 0;
@@ -10,17 +10,26 @@ fn main() {
         println!("Password: ");
         let password = read_line();
 
-        if login(&username, &password) {
-            println!("Welcome");
-            break;
-        } else {
-            println!("Incorrect credentials");
-            tries += 1;
-
-            if tries >= max_tries {
-                println!("Too many login attempts");
+        match login(&username, &password) {
+            Some(LoginAction::Granted(_)) => {
+                println!("Welcome");
                 break;
+            },
+
+            Some(LoginAction::Denied) => {
+                println!("Incorrect password");
+            },
+
+            None => {
+                println!("Incorrect username");
             }
+        }
+
+        tries += 1;
+
+        if tries >= max_tries {
+            println!("Too many login attempts");
+            break;
         }
     }
 }

@@ -1,3 +1,15 @@
+#[derive(PartialEq, Debug)]
+pub enum LoginAction {
+    Granted(LoginRole),
+    Denied,
+}
+
+#[derive(PartialEq, Debug)]
+pub enum LoginRole {
+    Admin,
+    User,
+}
+
 pub fn read_line() -> String {
     let mut input = String::new();
     std::io::stdin()
@@ -7,8 +19,20 @@ pub fn read_line() -> String {
     input.trim().to_string()
 }
 
-pub fn login(username: &str, password: &str) -> bool {
-    username.to_lowercase() == "admin" && password == "password"
+pub fn login(username: &str, password: &str) -> Option<LoginAction> {
+    let username = username.to_lowercase();
+
+    if username != "admin" && username != "bob" {
+        return None;
+    }
+
+    if username == "admin" && password == "password" {
+        Some(LoginAction::Granted(LoginRole::Admin))
+    } else if username == "bob" && password == "password" {
+        Some(LoginAction::Granted(LoginRole::User))
+    } else {
+        Some(LoginAction::Denied)
+    }
 }
 
 #[cfg(test)]
@@ -16,27 +40,26 @@ mod tests {
     use super::*;
 
     #[test]
-    fn login_returns_true_for_correct_credentials() {
-        assert!(login("admin", "password"));
+    fn login_returns_granted_for_correct_credentials() {
+        let login_action = login("admin", "password").unwrap();
+        assert_eq!(login_action, LoginAction::Granted(LoginRole::Admin));
     }
 
     #[test]
     fn login_username_check_is_case_insensitive() {
-        assert!(login("ADMIN", "password"));
+        let login_action = login("BOB", "password").unwrap();
+        assert_eq!(login_action, LoginAction::Granted(LoginRole::User));
     }
 
     #[test]
-    fn login_returns_false_if_username_is_incorrect() {
-        assert!(!login("admin2", "password"));
+    fn login_returns_denied_if_password_is_incorrect() {
+        let login_action = login("admin", "password2").unwrap();
+        assert_eq!(login_action, LoginAction::Denied);
     }
 
     #[test]
-    fn login_returns_false_if_password_is_incorrect() {
-        assert!(!login("admin", "password2"));
-    }
-
-    #[test]
-    fn login_returns_false_if_username_and_password_are_incorrect() {
-        assert!(!login("admin2", "password2"));
+    fn login_returns_none_if_username_does_not_exist() {
+        let login_action_option = login("admin2", "password");
+        assert_eq!(login_action_option, None);
     }
 }
