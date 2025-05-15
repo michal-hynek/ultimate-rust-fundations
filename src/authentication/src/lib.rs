@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub struct User {
     pub username: String,
     pub password: String,
@@ -35,24 +37,39 @@ pub fn read_line() -> String {
     input.trim().to_string()
 }
 
-fn get_users() -> Vec<User> {
+/*fn get_users() -> Vec<User> {
     vec![
         User::new("admin", "password", LoginRole::Admin),
         User::new("bob", "password", LoginRole::User),
     ]
+}*/
+
+fn get_users() -> HashMap<String, User> {
+    let mut users = HashMap::new();
+
+    users.insert(
+        "admin".to_string(),
+        User::new("admin", "password", LoginRole::Admin),
+    );
+    users.insert(
+        "bob".to_string(),
+        User::new("bob", "password", LoginRole::User),
+    );
+
+    users
 }
 
 fn get_admin_usernames() -> Vec<String> {
     get_users().into_iter()
-        .filter(|u| u.role == LoginRole::Admin)
-        .map(|u| u.username)
+        .filter(|u| u.1.role == LoginRole::Admin)
+        .map(|u| u.1.username)
         .collect()
 }
 
 pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username = username.to_lowercase();
 
-    if let Some(user) = get_users().iter().find(|u| u.username == username) {
+    if let Some(user) = get_users().get(&username) {
         if user.password == password {
             Some(LoginAction::Granted(user.role.clone()))
         } else {
