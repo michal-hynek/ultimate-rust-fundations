@@ -1,5 +1,8 @@
-use std::collections::HashMap;
+use std::{collections::HashMap};
+use std::fs;
+use serde::{Serialize, Deserialize};
 
+#[derive(Serialize, Deserialize)]
 pub struct User {
     pub username: String,
     pub password: String,
@@ -22,7 +25,7 @@ pub enum LoginAction {
     Denied,
 }
 
-#[derive(PartialEq, Debug, Clone)]
+#[derive(PartialEq, Debug, Clone, Serialize, Deserialize)]
 pub enum LoginRole {
     Admin,
     User,
@@ -37,14 +40,22 @@ pub fn read_line() -> String {
     input.trim().to_string()
 }
 
-/*fn get_users() -> Vec<User> {
-    vec![
-        User::new("admin", "password", LoginRole::Admin),
-        User::new("bob", "password", LoginRole::User),
-    ]
-}*/
-
 fn get_users() -> HashMap<String, User> {
+    if fs::exists("users.json").unwrap() {
+        let users_json = fs::read_to_string("users.json").unwrap();
+        let users: HashMap<String, User> = serde_json::from_str(&users_json).unwrap();
+
+        users
+    } else {
+        let users = get_default_users();
+        let users_json = serde_json::to_string_pretty(&users).unwrap();
+        fs::write("users.json", users_json).unwrap();
+
+        users
+    }
+}
+
+fn get_default_users() -> HashMap<String, User> {
     let mut users = HashMap::new();
 
     users.insert(
