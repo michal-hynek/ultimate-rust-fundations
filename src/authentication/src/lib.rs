@@ -13,7 +13,7 @@ impl User {
     fn new(username: &str, password: &str, role: LoginRole) -> Self {
         Self {
             username: username.to_lowercase(),
-            password: password.to_string(),
+            password: hash_password(&password),
             role,
         }
     }
@@ -38,6 +38,15 @@ pub fn read_line() -> String {
         .expect("failed to read from stdin");
 
     input.trim().to_string()
+}
+
+fn hash_password(password: &str) -> String {
+    use sha2::{Sha512, Digest};
+
+    let mut hasher = Sha512::new();
+    hasher.update(password);
+
+    format!("{:X}", hasher.finalize())
 }
 
 fn get_users() -> HashMap<String, User> {
@@ -81,7 +90,7 @@ pub fn login(username: &str, password: &str) -> Option<LoginAction> {
     let username = username.to_lowercase();
 
     if let Some(user) = get_users().get(&username) {
-        if user.password == password {
+        if user.password == hash_password(password) {
             Some(LoginAction::Granted(user.role.clone()))
         } else {
             Some(LoginAction::Denied)
