@@ -1,3 +1,4 @@
+use std::path::Path;
 use std::{collections::HashMap};
 use std::fs;
 use serde::{Serialize, Deserialize};
@@ -10,10 +11,10 @@ pub struct User {
 }
 
 impl User {
-    fn new(username: &str, password: &str, role: LoginRole) -> Self {
+    pub fn new(username: &str, password: &str, role: LoginRole) -> Self {
         Self {
             username: username.to_lowercase(),
-            password: hash_password(&password),
+            password: hash_password(password),
             role,
         }
     }
@@ -47,6 +48,12 @@ fn hash_password(password: &str) -> String {
     hasher.update(password);
 
     format!("{:X}", hasher.finalize())
+}
+
+pub fn save_users(users: HashMap<String, User>) {
+    let path = Path::new("users.json");
+    let users_json = serde_json::to_string_pretty(&users).unwrap();
+    fs::write(path, users_json).unwrap();
 }
 
 pub fn get_users() -> HashMap<String, User> {
