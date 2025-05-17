@@ -49,7 +49,7 @@ fn hash_password(password: &str) -> String {
     format!("{:X}", hasher.finalize())
 }
 
-fn get_users() -> HashMap<String, User> {
+pub fn get_users() -> HashMap<String, User> {
     if fs::exists("users.json").unwrap() {
         let users_json = fs::read_to_string("users.json").unwrap();
         let users: HashMap<String, User> = serde_json::from_str(&users_json).unwrap();

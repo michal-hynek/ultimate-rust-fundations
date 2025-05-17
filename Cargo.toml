@@ -10,4 +10,5 @@ members = [ "src/greet",
     "src/greet",
     "src/hello_world",
     "src/login",
+    "src/login_manager",
 ]
