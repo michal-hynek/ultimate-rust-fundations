@@ -15,7 +15,7 @@ enum Commands {
     List,
 
     /// Add new user
-    AddUser {
+    Add {
         username: String,
         password: String,
 
@@ -23,6 +23,11 @@ enum Commands {
         #[arg(long)]
         admin: Option<bool>,
     },
+
+    /// Delete user
+    Delete {
+        username: String,
+    }
 }
 
 fn list_users() {
@@ -56,6 +61,17 @@ fn add_user(username: String, password: String, is_admin: bool) {
     authentication::save_users(users);
 }
 
+fn delete_user(username: String) {
+    let mut users = get_users();
+
+    if users.contains_key(&username) {
+        users.remove(&username);
+        authentication::save_users(users);
+    } else {
+        println!("user {} does not exist", username);
+    }
+}
+
 fn main() {
     let args = Args::parse();
 
@@ -64,8 +80,12 @@ fn main() {
             list_users();
         },
 
-        Some(Commands::AddUser { username, password, admin }) => {
+        Some(Commands::Add { username, password, admin }) => {
             add_user(username, password, admin.unwrap_or(false));
+        },
+
+        Some(Commands::Delete { username }) => {
+            delete_user(username);
         },
 
         None => println!("incorrect syntax: run with --help for more information"),
