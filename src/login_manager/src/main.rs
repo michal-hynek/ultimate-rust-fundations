@@ -1,4 +1,4 @@
-use authentication::{get_users, LoginRole, User};
+use authentication::{get_users, hash_password, save_users, LoginRole, User};
 use clap::{Parser, Subcommand};
 
 /// Simple User Management App
@@ -27,7 +27,13 @@ enum Commands {
     /// Delete user
     Delete {
         username: String,
-    }
+    },
+
+    /// Change password
+    ChangePassword {
+        username: String,
+        password: String,
+    },
 }
 
 fn list_users() {
@@ -72,6 +78,17 @@ fn delete_user(username: String) {
     }
 }
 
+fn change_password(username: String, password: String) {
+    let mut users = get_users();
+
+    if let Some(user) = users.get_mut(&username) {
+        user.password = hash_password(&password);
+        save_users(users);
+    } else {
+        println!("user {} does not exist", username);
+    }
+}
+
 fn main() {
     let args = Args::parse();
 
@@ -87,6 +104,10 @@ fn main() {
         Some(Commands::Delete { username }) => {
             delete_user(username);
         },
+
+        Some(Commands::ChangePassword { username, password }) => {
+            change_password(username, password);
+        }
 
         None => println!("incorrect syntax: run with --help for more information"),
     }

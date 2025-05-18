@@ -41,7 +41,7 @@ pub fn read_line() -> String {
     input.trim().to_string()
 }
 
-fn hash_password(password: &str) -> String {
+pub fn hash_password(password: &str) -> String {
     use sha2::{Sha512, Digest};
 
     let mut hasher = Sha512::new();
