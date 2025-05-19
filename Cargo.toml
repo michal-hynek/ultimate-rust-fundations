@@ -4,11 +4,15 @@ version = "0.1.0"
 edition = "2024"
 
 [workspace]
-members = [ "src/greet",
+members = [
+    # session1 - basics
     "src/authentication",
     "src/console_input",
     "src/greet",
     "src/hello_world",
     "src/login",
     "src/login_manager",
+
+    # session2 - concurrency
+    "src/hello_thread",
 ]
