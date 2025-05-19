@@ -15,4 +15,5 @@ members = [
 
     # session2 - concurrency
     "src/hello_thread",
+    "src/hello_thread_params",
 ]
