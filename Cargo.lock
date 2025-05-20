@@ -184,6 +184,10 @@ name = "hello_thread_params"
 version = "0.1.0"
 
 [[package]]
+name = "hello_thread_return"
+version = "0.1.0"
+
+[[package]]
 name = "hello_world"
 version = "0.1.0"
 
