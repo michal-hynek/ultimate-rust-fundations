@@ -18,4 +18,5 @@ members = [
     "src/hello_thread_params",
     "src/hello_thread_return",
     "src/divide_work",
+    "src/thread_builder",
 ]
