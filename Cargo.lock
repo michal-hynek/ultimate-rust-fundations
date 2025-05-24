@@ -53,6 +53,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "atomics"
+version = "0.1.0"
+
+[[package]]
 name = "authentication"
 version = "0.1.0"
 dependencies = [
