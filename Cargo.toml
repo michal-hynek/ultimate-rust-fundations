@@ -20,5 +20,7 @@ members = [
     "src/divide_work",
     "src/thread_builder",
     "src/scoped_threads",
-    "src/footgun", "src/atomics",
+    "src/footgun",
+    "src/atomics",
+    "src/mutexes",
 ]
