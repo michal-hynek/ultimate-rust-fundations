@@ -271,6 +271,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "rwlocks"
+version = "0.1.0"
+dependencies = [
+ "once_cell",
+]
+
+[[package]]
 name = "ryu"
 version = "1.0.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
