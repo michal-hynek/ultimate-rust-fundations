@@ -14,10 +14,16 @@ fn main() {
 
     let lock = my_shared.lock().unwrap();*/
 
+    // no deadlock becase the first lock variable is explicitly dropped
     let my_shared = Mutex::new(0);
     let lock = my_shared.lock().unwrap();
+    std::mem::drop(lock);
+    let _lock = my_shared.lock().unwrap();
 
-    if let Ok(lock) = my_shared.try_lock() {
+    let my_shared = Mutex::new(0);
+    let _lock = my_shared.lock().unwrap();
+
+    if let Ok(_lock) = my_shared.try_lock() {
         println!("got the lock");
     } else {
         println!("getting the lock failed");
