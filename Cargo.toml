@@ -24,4 +24,5 @@ members = [
     "src/atomics",
     "src/mutexes",
     "src/rwlocks",
+    "src/deadlocks",
 ]
