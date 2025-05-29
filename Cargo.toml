@@ -28,4 +28,5 @@ members = [
     "src/poisoning",
     "src/dashing",
     "src/parking",
+    "src/channels1",
 ]
