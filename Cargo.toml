@@ -29,4 +29,5 @@ members = [
     "src/dashing",
     "src/parking",
     "src/channels1",
+    "src/workers",
 ]
