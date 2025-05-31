@@ -30,4 +30,5 @@ members = [
     "src/parking",
     "src/channels1",
     "src/workers",
+    "src/workers2",
 ]
