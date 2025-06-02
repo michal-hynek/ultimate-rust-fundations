@@ -33,4 +33,5 @@ members = [
     "src/workers2",
     "src/affinity",
     "src/tpriority",
+    "src/rayon_iters",
 ]
