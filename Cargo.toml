@@ -34,4 +34,5 @@ members = [
     "src/affinity",
     "src/tpriority",
     "src/rayon_iters",
+    "src/rayon_iters2",
 ]
