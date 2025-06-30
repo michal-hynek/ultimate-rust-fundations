@@ -36,4 +36,5 @@ members = [
     "src/rayon_iters",
     "src/rayon_iters2",
     "src/rayon_scopes",
+    "src/rayon_scopes2",
 ]
