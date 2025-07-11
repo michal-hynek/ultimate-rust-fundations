@@ -457,6 +457,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "hello_tokio3"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "tokio",
+]
+
+[[package]]
 name = "hello_world"
 version = "0.1.0"
 
