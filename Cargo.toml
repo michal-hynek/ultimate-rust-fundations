@@ -43,4 +43,5 @@ members = [
     "src/hello_tokio",
     "src/hello_tokio2",
     "src/hello_tokio3",
+    "src/hello_tokio4",
 ]
