@@ -45,4 +45,5 @@ members = [
     "src/hello_tokio3",
     "src/hello_tokio4",
     "src/hello_tokio5",
+    "src/blocking",
 ]
