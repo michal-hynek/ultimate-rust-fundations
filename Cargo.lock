@@ -325,6 +325,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "errors2"
+version = "0.1.0"
+dependencies = [
+ "tokio",
+]
+
+[[package]]
 name = "footgun"
 version = "0.1.0"
 
