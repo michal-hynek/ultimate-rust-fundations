@@ -51,4 +51,5 @@ members = [
     "src/tokio_testing",
     "src/errors",
     "src/errors2",
+    "src/errors3",
 ]
