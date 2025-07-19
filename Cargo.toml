@@ -54,4 +54,7 @@ members = [
     "src/errors3",
     "src/errors4",
     "src/errors5",
+    "src/fileio",
+    "src/fileio2",
+    "src/fileio3",
 ]

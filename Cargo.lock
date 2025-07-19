@@ -359,6 +359,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "fileio"
+version = "0.1.0"
+
+[[package]]
+name = "fileio2"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "tokio",
+]
+
+[[package]]
+name = "fileio3"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "tokio",
+]
+
+[[package]]
 name = "footgun"
 version = "0.1.0"
 
