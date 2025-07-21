@@ -58,4 +58,6 @@ members = [
     "src/fileio2",
     "src/fileio3",
     "src/restclient",
+    "src/tcp_echo",
+    "src/tcp_echo_client",
 ]
