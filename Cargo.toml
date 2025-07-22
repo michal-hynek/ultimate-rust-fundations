@@ -60,4 +60,5 @@ members = [
     "src/restclient",
     "src/tcp_echo",
     "src/tcp_echo_client",
+    "src/sync_channel",
 ]
