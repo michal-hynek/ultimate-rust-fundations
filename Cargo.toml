@@ -62,4 +62,5 @@ members = [
     "src/tcp_echo_client",
     "src/sync_channel",
     "src/async_mutex",
+    "src/tokio_select",
 ]
