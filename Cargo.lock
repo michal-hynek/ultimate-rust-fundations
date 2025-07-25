@@ -1837,6 +1837,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "tokio_select2"
+version = "0.1.0"
+dependencies = [
+ "tokio",
+]
+
+[[package]]
 name = "tokio_testing"
 version = "0.1.0"
 dependencies = [
