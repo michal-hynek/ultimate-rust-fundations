@@ -64,4 +64,5 @@ members = [
     "src/async_mutex",
     "src/tokio_select",
     "src/tokio_select2",
+    "src/recursion",
 ]
