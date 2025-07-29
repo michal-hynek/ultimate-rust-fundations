@@ -67,4 +67,5 @@ members = [
     "src/recursion",
     "src/broadcast",
     "src/logspan",
+    "src/db",
 ]
