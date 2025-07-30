@@ -68,4 +68,5 @@ members = [
     "src/broadcast",
     "src/logspan",
     "src/db",
+    "src/web_service",
 ]
