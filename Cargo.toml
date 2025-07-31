@@ -69,4 +69,5 @@ members = [
     "src/logspan",
     "src/db",
     "src/web_service",
+    "src/thumbnail_server",
 ]
