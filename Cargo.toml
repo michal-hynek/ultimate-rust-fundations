@@ -70,4 +70,7 @@ members = [
     "src/db",
     "src/web_service",
     "src/thumbnail_server",
+
+    # session4 - memory management
+    "src/memory"
 ]
