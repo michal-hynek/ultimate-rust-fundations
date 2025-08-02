@@ -72,5 +72,6 @@ members = [
     "src/thumbnail_server",
 
     # session4 - memory management
-    "src/memory"
+    "src/memory",
+    "src/memory2",
 ]

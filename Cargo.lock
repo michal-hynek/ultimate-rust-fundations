@@ -1758,6 +1758,13 @@ name = "memory"
 version = "0.1.0"
 
 [[package]]
+name = "memory2"
+version = "0.1.0"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "mime"
 version = "0.3.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
