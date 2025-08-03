@@ -74,4 +74,5 @@ members = [
     # session4 - memory management
     "src/memory",
     "src/memory2",
+    "src/dropping",
 ]
