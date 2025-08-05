@@ -76,4 +76,5 @@ members = [
     "src/memory2",
     "src/dropping",
     "src/dropping2",
+    "src/dropping3",
 ]
