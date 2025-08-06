@@ -77,4 +77,5 @@ members = [
     "src/dropping",
     "src/dropping2",
     "src/dropping3",
+    "src/refc",
 ]
