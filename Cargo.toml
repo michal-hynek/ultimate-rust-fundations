@@ -80,4 +80,5 @@ members = [
     "src/refc",
     "src/refc2",
     "src/refc3",
+    "src/refc4",
 ]
