@@ -82,4 +82,5 @@ members = [
     "src/refc3",
     "src/refc4",
     "src/refc5",
+    "src/lifetimes",
 ]
