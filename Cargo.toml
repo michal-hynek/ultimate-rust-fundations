@@ -87,4 +87,5 @@ members = [
     "src/traits",
     "src/traits2",
     "src/traits3",
+    "src/traits4",
 ]
