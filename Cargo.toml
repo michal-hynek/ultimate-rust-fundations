@@ -88,4 +88,5 @@ members = [
     "src/traits2",
     "src/traits3",
     "src/traits4",
+    "src/generics",
 ]
