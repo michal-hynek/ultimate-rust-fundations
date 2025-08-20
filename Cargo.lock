@@ -1599,6 +1599,10 @@ name = "iterators"
 version = "0.1.0"
 
 [[package]]
+name = "iterators2"
+version = "0.1.0"
+
+[[package]]
 name = "itertools"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
