@@ -93,4 +93,5 @@ members = [
     "src/generics3",
     "src/iterators",
     "src/iterators2",
+    "src/cycles",
 ]
