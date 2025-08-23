@@ -95,4 +95,5 @@ members = [
     "src/iterators2",
     "src/cycles",
     "src/packing",
+    "src/bytes",
 ]
