@@ -96,4 +96,5 @@ members = [
     "src/cycles",
     "src/packing",
     "src/bytes",
+    "src/bytes2",
 ]
