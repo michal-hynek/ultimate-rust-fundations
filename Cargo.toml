@@ -97,4 +97,9 @@ members = [
     "src/packing",
     "src/bytes",
     "src/bytes2",
+
+    # session5 - collector project
+    "src/collector",
+    "src/server",
+    "src/shared_data",
 ]
